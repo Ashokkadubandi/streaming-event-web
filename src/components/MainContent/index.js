@@ -6,6 +6,8 @@ import ScrollEvent from "../ScrollEvent";
 import "./index.css";
 
 const envApi = process.env.REACT_APP_API_URL_EVENTS;
+const envApiKey = process.env.REACT_APP_API_URL_KEY;
+console.log("Api key", envApiKey);
 
 const Main = () => {
   const [recommendList, setRecommend] = useState([]);
@@ -13,7 +15,13 @@ const Main = () => {
 
   useEffect(() => {
     const getRecApi = async () => {
-      const response = await fetch(envApi);
+      const opt = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${envApiKey}`,
+        },
+      };
+      const response = await fetch(envApi, opt);
       const data = await response.json();
       isLoading(false);
       console.log(data.events);
