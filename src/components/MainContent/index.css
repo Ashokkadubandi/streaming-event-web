@@ -1,0 +1,125 @@
+.event-layer {
+  padding-top: 15rem;
+  background-image: url("https://cdn.pixabay.com/photo/2022/06/02/15/01/music-7238254_1280.jpg");
+  background-size: center;
+  background-position: center;
+  background-origin: border-box;
+  height: 50vh;
+}
+.event-layer-content {
+  position: absolute;
+  top: 50px;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@media (max-width: 636px) {
+  .event-layer-content {
+    top: 5px;
+  }
+}
+.text-heading-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 636px) {
+  .text-heading-content {
+    width: 90%;
+  }
+}
+.text-heading-content h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1px;
+  text-align: center;
+  width: 80%;
+}
+
+.text-heading-content p {
+  font-size: 1rem;
+  color: #eff6fd;
+  text-align: center;
+  width: 80%;
+}
+
+@media (max-width: 636px) {
+  .text-heading-content h1 {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+}
+.recommend-show-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  align-items: center;
+}
+@media (max-width: 636px) {
+  .recommend-show-container {
+    margin-top: 0.5rem;
+  }
+}
+.recommend-content {
+  width: 100%;
+}
+.recommend-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  width: 20%;
+  padding-left: 2rem;
+}
+@media (max-width: 636px) {
+  .recommend-header {
+    padding-left: 1rem;
+    width: 50%;
+  }
+}
+.recommend-events {
+  padding-left: 2.8rem;
+}
+@media (max-width: 636px) {
+  .recommend-events {
+    padding-left: 1rem;
+  }
+}
+.events-card-con {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0px;
+  margin-top: 0px;
+  overflow-x: scroll;
+}
+.events-card-con::-webkit-scrollbar {
+  display: none;
+}
+.upcoming-events {
+  display: flex;
+  flex-direction: column;
+}
+.upcoming-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  width: 20%;
+  padding-left: 2rem;
+}
+@media (max-width: 636px) {
+  .upcoming-header {
+    padding-left: 1rem;
+    width: 50%;
+  }
+}
