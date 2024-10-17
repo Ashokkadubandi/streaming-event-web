@@ -15,11 +15,7 @@ const Main = () => {
 
   useEffect(() => {
     const getRecApi = async () => {
-      const response = await fetch(envApi, {
-        headers: {
-          Authorization: `Bearer ${envApiKey}`,
-        },
-      });
+      const response = await fetch(envApi);
       const data = await response.json();
       isLoading(false);
       console.log(data.events);
