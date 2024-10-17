@@ -15,13 +15,11 @@ const Main = () => {
 
   useEffect(() => {
     const getRecApi = async () => {
-      const opt = {
-        method: "GET",
+      const response = await fetch(envApi, {
         headers: {
           Authorization: `Bearer ${envApiKey}`,
         },
-      };
-      const response = await fetch(envApi, opt);
+      });
       const data = await response.json();
       isLoading(false);
       console.log(data.events);
