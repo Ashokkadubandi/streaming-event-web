@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Oval } from "react-loader-spinner";
+import { useHistory, Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import "./index.css";
 
@@ -19,6 +21,8 @@ const Email = (props) => {
 };
 
 const Login = () => {
+  const token = Cookies.get("ACCESS");
+  const history = useHistory();
   const [log, setLog] = useState("REG");
   const [apiStatus, setApi] = useState(false);
   const [userData] = useState([
@@ -28,6 +32,10 @@ const Login = () => {
   const [currentUserData, setCurrentUSer] = useState(
     log === "REG" ? userData[0] : userData[1]
   );
+
+  if (token !== undefined) {
+    return <Redirect to="/" />;
+  }
 
   const registerFormDetail = async () => {
     setApi(true);
@@ -53,9 +61,13 @@ const Login = () => {
     }
   };
 
+  const renderAccessToHome = () => {
+    Cookies.set("ACCESS", "dataaccepted", { expires: 7 });
+    history.replace("/");
+  };
+
   const loginFormDetail = async () => {
     setApi(true);
-
     let userData = {
       username: currentUserData.name,
       password: currentUserData.password,
@@ -69,9 +81,11 @@ const Login = () => {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, options);
+    console.log(response);
     if (response.ok === true) {
       console.log(response);
       setApi(false);
+      renderAccessToHome();
     } else {
       setApi(false);
     }
