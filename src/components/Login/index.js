@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Oval } from "react-loader-spinner";
 
 import "./index.css";
 
@@ -19,6 +20,7 @@ const Email = (props) => {
 
 const Login = () => {
   const [log, setLog] = useState("REG");
+  const [apiStatus, setApi] = useState(false);
   const [userData] = useState([
     { name: "", email: "", password: "" },
     { name: "", password: "" },
@@ -28,6 +30,7 @@ const Login = () => {
   );
 
   const registerFormDetail = async () => {
+    setApi(true);
     let userData = {
       name: currentUserData.name,
       email: currentUserData.email,
@@ -42,15 +45,36 @@ const Login = () => {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, options);
-    console.log(response);
     if (response.ok === true) {
-      const data = await response.json();
-      console.log(data);
+      console.log(response);
+      setApi(false);
+    } else {
+      setApi(false);
     }
   };
 
   const loginFormDetail = async () => {
-    console.log("data");
+    setApi(true);
+
+    let userData = {
+      username: currentUserData.name,
+      password: currentUserData.password,
+    };
+    const url = "https://stream-log-auth.onrender.com/login";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+    const response = await fetch(url, options);
+    if (response.ok === true) {
+      console.log(response);
+      setApi(false);
+    } else {
+      setApi(false);
+    }
   };
 
   const submitDetails = (event) => {
@@ -60,11 +84,13 @@ const Login = () => {
   };
 
   const setRegister = () => {
+    setApi(false);
     setLog("REG");
     setCurrentUSer(userData[0]);
   };
 
   const setLogin = () => {
+    setApi(false);
     setLog("LOG");
     setCurrentUSer(userData[1]);
   };
@@ -115,7 +141,19 @@ const Login = () => {
               value={currentUserData.password}
             />
             <button type="submit" className="sub-btn" onClick={submitDetails}>
-              submit
+              {apiStatus ? (
+                <Oval
+                  visible={true}
+                  height="30"
+                  width="30"
+                  color="white"
+                  ariaLabel="oval-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                />
+              ) : (
+                "Submit"
+              )}
             </button>
           </form>
         </div>

@@ -2,9 +2,19 @@
   display: flex;
   height: 100vh;
 }
+@media (max-width: 636px) {
+  .login-section-container {
+    flex-direction: column;
+  }
+}
 .login-preview {
   background-color: black;
   width: 50%;
+}
+@media (max-width: 636px) {
+  .login-preview {
+    display: none;
+  }
 }
 .login-form {
   display: flex;
@@ -13,10 +23,26 @@
   padding-top: 5rem;
   width: 50%;
 }
+@media (max-width: 636px) {
+  .login-form {
+    padding-left: 0;
+  }
+}
+@media (max-width: 636px) {
+  .login-form {
+    width: 100%;
+    padding-top: 2rem;
+  }
+}
 .login-form-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 636px) {
+  .login-form-btn {
+    width: 90%;
+  }
 }
 .login-form-btn button {
   border-radius: 5px;
@@ -27,6 +53,12 @@
   font-size: 1.5rem;
   font-family: "Times New Roman", Times, serif;
   cursor: pointer;
+}
+@media (max-width: 636px) {
+  .login-form-btn button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
 }
 .btn-sign {
   background-color: #0765bd;
@@ -48,6 +80,15 @@
   padding: 1.5rem;
 }
 
+.form-container input {
+  border: 1px solid #0765bd;
+  padding-left: 5px;
+  border-radius: 5px;
+  outline: none;
+  width: 80%;
+  height: 35px;
+}
+
 .sub-btn {
   background-color: #0765bd;
   color: white;
@@ -59,6 +100,8 @@
   padding: 0.3rem;
   width: 30%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 .suc {
   color: green;
