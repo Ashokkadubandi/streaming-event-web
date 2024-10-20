@@ -1,0 +1,42 @@
+.infinite-load-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-scroll {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 636px) {
+  .card-scroll {
+    padding-left: 0px;
+  }
+}
+
+.load-child-ele {
+  width: 30%;
+  margin: 5px;
+  box-shadow: 2px 2px 10px black;
+  border-radius: 25px;
+}
+
+@media (max-width: 536px) {
+  .load-child-ele {
+    width: 100%;
+  }
+}
+.load-child-ele img {
+  width: 100%;
+}
+.load-child-text {
+  padding-left: 0.5rem;
+}
+.load-city-name {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}

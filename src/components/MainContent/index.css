@@ -86,19 +86,15 @@
   }
 }
 .recommend-events {
-  padding-left: 2.8rem;
+  width: 100%;
 }
-@media (max-width: 636px) {
-  .recommend-events {
-    padding-left: 1rem;
-  }
-}
+
 .events-card-con {
   display: flex;
   list-style-type: none;
   padding-left: 0px;
   margin-top: 0px;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 .events-card-con::-webkit-scrollbar {
   display: none;

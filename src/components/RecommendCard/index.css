@@ -1,25 +1,37 @@
 .rec-card {
-  width: 30%;
-  position: relative;
+  width: 40%;
   flex-shrink: 0;
-  margin: 0.2rem;
-  border-radius: 5px;
-  overflow-x: hidden;
-  /* background-color: black; */
+  margin: 1rem;
+  position: relative;
 }
 .img-src {
   width: 100%;
 }
 .text-container {
   position: absolute;
-  top: 35px;
-  background: transparent;
-  transition: 1.5s;
+  top: 0;
+  transition: 1.2s;
   opacity: 0;
+  height: 100%;
 }
-.text-container:hover {
-  opacity: 1;
+@media (max-width: 636px) {
+  .text-container {
+    opacity: 1;
+  }
 }
+@media (min-width: 636px) {
+  .text-container:hover {
+    opacity: 1;
+    background-color: black;
+  }
+}
+
+@media (min-width: 636px) {
+  .rec-card:hover img {
+    opacity: 0.5;
+  }
+}
+
 .event-name {
   color: rgb(255, 255, 255);
   text-shadow: 20px 20px 50px black;
@@ -27,6 +39,47 @@
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   left: 20px;
+  font-size: 2.5rem;
+  padding: 1rem;
+}
+@media (max-width: 636px) {
+  .event-name {
+    font-size: 1rem;
+    padding: 0.2rem;
+  }
+}
+.event-details {
+  padding-left: 2.5rem;
+}
+@media (max-width: 636px) {
+  .event-details {
+    padding-left: 1rem;
+  }
+}
+.city-name {
   font-size: 2rem;
-  padding: 2rem;
+  color: white;
+}
+@media (max-width: 636px) {
+  .city-name {
+    font-size: 1rem;
+  }
+}
+.distance {
+  font-size: 1;
+  color: aliceblue;
+}
+@media (max-width: 636px) {
+  .distance {
+    font-size: 0.8rem;
+  }
+}
+.weather {
+  font-size: 1rem;
+  color: aliceblue;
+}
+@media (max-width: 636px) {
+  .weather {
+    font-size: 0.8rem;
+  }
 }
